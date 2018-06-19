@@ -32,7 +32,7 @@ router.put("/api/burgers/:id", function (req, res) {
     });
 });
 
-router.delete("api/burgers/:id", (req, res) => {
+router.delete("/api/burgers/:id", (req, res) => {
     console.log('got here?');
     let condition = "id = " + req.params.id;
 

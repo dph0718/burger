@@ -13,12 +13,19 @@ body {
 
 #header {
     width: 100%;
-    font-size: 5em;
     color: red;
     text-shadow: 2px 2px 5px rgba(1, 1, 1, 0.4);
     text-align: center;
     background-image: url('/images/seeds.png');
     background-size: 100% 100%;
+}
+
+#title{
+       font-size: 5em;
+}
+
+#subheader{
+    font-size: 2em;
 }
 
 form {
@@ -52,8 +59,8 @@ form {
     background-image: url('/images/stomach.png');
     background-size: 100% 100%;
     box-shadow: 8px 8px 8px  rgba(1, 1, 1, 0.4);
-
 }
+
 h1, h2{
     color: rgb(211, 180, 57);
     text-shadow: 3px 3px 3px rgba(1, 1, 1, 0.8), -2px -2px 3px rgba(1, 1, 1, 0.8);
@@ -70,15 +77,18 @@ h1, h2{
     padding: 8px;
     margin: 8px;
 }
+
 .button:hover{
     cursor: pointer;
     border: rgb(46, 73, 112) 2px outset;
 }
+
 .button:active{
     border: gray 2px inset;
     cursor: pointer;
     background-color: rgba(151, 151, 151, 0.4);
 }
+
 .burg-img {
     height: 84px;
 }

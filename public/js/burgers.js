@@ -44,6 +44,7 @@ $("#submit-burg").on("click", function (event) {
 
 $(".deleteIt").on("click", function (event) {
     let id = $(this).data('id');
+    console.log("trying to delete:", id)
     $.ajax("/api/burgers/" + id, {
         type: "DELETE"
     }).then(
