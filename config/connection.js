@@ -1,13 +1,20 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
-const ENV_PASSWORD = "Turkey1Valor";
+// const ENV_PASSWORD = "Turkey1Valor";
 
+// var connection = mysql.createConnection({
+//   port: 3306,
+//   host: "localhost",
+//   user: "root",
+//   password: ENV_PASSWORD || "Turkey1Valor",
+//   database: "burgers_db"
+// });
 var connection = mysql.createConnection({
   port: 3306,
   host: "localhost",
   user: "root",
-  password: ENV_PASSWORD || "Turkey1Valor",
+  password: process.env.PASSWORD,
   database: "burgers_db"
 });
 
