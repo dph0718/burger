@@ -19,8 +19,6 @@ function objToSql(ob) {
             arr.push(key + "=" + value);
         }
     }
-
-    // translate array of strings to a single comma-separated string
     return arr.toString();
 }
 
@@ -44,9 +42,6 @@ const orm = {
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
         queryString += ") ";
-
-        console.log(queryString);
-
         connection.query(queryString, vals, function (err, result) {
             if (err) {
                 throw err;
@@ -54,11 +49,33 @@ const orm = {
             cb(result);
         })
     },
-    updateOne: () => {
+    updateOne: (table, objColVals, condition, cb) => {
+        var queryString = "UPDATE " + table;
 
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+        console.log('query string:', queryString);
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     },
-    tellALie: () => {
-        console.log("i hate pizza with a passion");
+    deleteOne: (table, condition, cb) => {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
     }
 }
 

@@ -1,0 +1,36 @@
+<div id='burger-form'>
+    <form>
+        <h3>Name a Burger</h3>
+        <textarea id="burger-input"></textarea>
+        <button id='submit-burg' type="submit">Make Burger</button>
+    </form>
+</div>
+
+
+<div id='menu'>
+    <div id='burgers-uneaten'>
+        <h1>On The Table:</h1>
+        {{#each burgers}} {{#unless devoured}}
+        <h2>{{burger_name}}</h2>
+        {{#if image}}
+        <img class='burg-img' src="images/burger{{id}}.png"> {{else}}
+        <img class='burg-img' src="images/burger7.png">
+        <div class='deleteIt button' data-id={{id}}>Remove Your Custom Burger</div>
+        {{/if}}
+        <div class='eatit button' data-id={{id}}>Consume {{burger_name}}</div>
+        {{else}} {{/unless}} {{/each}}
+    </div>
+    <div id='burgers-eaten'>
+        <h1>In Your Stomach:</h1>
+        {{#each burgers}} {{#if devoured}}
+        <h2>{{burger_name}}</h2>
+        {{#if image}}
+        <img class='burg-img' src="images/burger{{id}}.png"> {{else}}
+        <img class='burg-img' src="images/burger7.png">
+        <div class='deleteIt button' data-id={{id}}>Remove Your Custom Burger</div>
+        {{/if}}
+        <div class='regurgitate button' data-id={{id}} id="green">Regurgitate {{burger_name}}</div>
+        {{/if}} {{/each}}
+
+    </div>
+</div>
